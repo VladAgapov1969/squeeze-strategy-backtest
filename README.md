@@ -2,7 +2,7 @@
 
 ## Strategy Overview
 
-A mean-reversion trading strategy that identifies low-volatility "squeeze" periods using channel width and ATR percentiles. The strategy enters both long and short positions at the channel middle during squeeze periods, exits at channel bounds, and re-enters on pullbacks to the middle or opposite bound.
+A mean-reversion trading strategy that identifies low-volatility "squeeze" periods using channel width and ATR percentiles. The strategy initially was planned as followes: enter both long and short positions at the channel middle during squeeze periods, exits at channel bounds, and re-enter on pullbacks to the middle or opposite bound. However it was discovered that the primary alpha appears to come from 1-2 first directional trades within each channel, not from multiple bounces as the original design assumed.
 
 ### Trading Rules
 

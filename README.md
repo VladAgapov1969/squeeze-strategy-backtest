@@ -3,6 +3,13 @@
 ## Strategy Overview
 
 A mean-reversion trading strategy that identifies low-volatility "squeeze" periods using channel width and ATR percentiles. The strategy initially was planned as followes: enter both long and short positions at the channel middle during squeeze periods, exits at channel bounds, and re-enter on pullbacks to the middle or opposite bound. However it was discovered that the primary alpha appears to come from 1-2 first directional trades within each channel, not from multiple bounces as the original design assumed.
+However we discovered that the primary alpha appears to come from the first 1-2 directional trades within each channel, not from multiple bounces as the original design assumed.
+
+- What works: AUDUSD, GBPUSD
+- What does not yet work: USDCHF
+- Alpha mechanism: first directional trades
+- Next steps: broader symbol selection and time period tick testing testing, possibly finding the best time intervals for trading
+
 
 ### Trading Rules
 
@@ -11,8 +18,9 @@ A mean-reversion trading strategy that identifies low-volatility "squeeze" perio
 | Entry        | Enter both Long and Short at channel middle during squeeze                                               |
 | Exit         | Long exits at upper bound, Short exits at lower bound                                                    |
 | Re-entry     | After exit, re-enter when price returns to middle or opposite bound                                      |
+| Limiting     | Special triggers limniting the number of trades allowed per channel by N (normally 1 or 2 or 3)          |
 | Broker       | Fusion Brokerage with 0.6 pip round trip cost cap                                                        |
-| Trading Hours| Quiet hours (22-23, 0-1, 4-5 GMT)                                                                       |
+| Trading Hours| Quiet hours (22-23, 0-1, 4-5 GMT)                                                                        |
 
 ## Walk-Forward Validation Results (4 Months)
 
